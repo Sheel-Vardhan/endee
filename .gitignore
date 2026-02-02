@@ -20,3 +20,22 @@ data/*
 # Frontend
 frontend/
 frontend/*
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.python-version
+
+# Env files / local config
+.env
+.env.*
+!.env.example
+
+# OS / IDE
+.idea/
+*.log

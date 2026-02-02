@@ -1,5 +1,41 @@
 # Endee: High-Performance Open Source Vector Database
 
+---
+
+## Added in this fork: Endee RAG + Semantic Search Demo (AI/ML Project)
+
+This fork includes a complete **Semantic Search + RAG** reference project where **Endee is the vector database**.
+
+- Demo location: `examples/rag_semantic_search/`
+- What it demonstrates: ingest docs → embed → `index.upsert(...)` → `index.query(...)` → RAG-style answers
+
+### Quickstart (Windows-friendly)
+
+1) Start Endee (Docker):
+
+```bash
+docker compose -f examples/rag_semantic_search/docker-compose.endee.yml up -d
+```
+
+2) Run the demo API:
+
+```bash
+cd examples/rag_semantic_search
+python -m venv .venv
+.\.venv\Scripts\activate
+pip install -r requirements.txt
+copy env.example .env
+python -m app.cli ingest --path data/sample_docs
+python -m app.cli api --host 127.0.0.1 --port 8000
+```
+
+3) Query:
+
+- `POST http://127.0.0.1:8000/search` with JSON: `{"query":"How do I run Endee with docker?", "top_k": 5}`
+- `POST http://127.0.0.1:8000/ask` with JSON: `{"query":"What is Endee?", "top_k": 5}`
+
+---
+
 **Endee (nD)** is a specialized, high-performance vector database built for speed and efficiency. This guide covers supported platforms, dependency requirements, and detailed build instructions using both our automated installer and manual CMake configuration.
 
 ---
